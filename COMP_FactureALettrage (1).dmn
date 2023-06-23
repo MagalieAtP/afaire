@@ -1,0 +1,1445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_1oj7khq" name="DRD" namespace="http://camunda.org/schema/1.0/dmn">
+  <decision id="Decision_1jui1qf" name="Analyser la facture reçue">
+    <decisionTable id="decisionTable_1" hitPolicy="FIRST">
+      <input id="input_1" label="Entité de la facture ">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0ptanm9" label="état du compte">
+        <inputExpression id="LiteralExpression_02qr93y" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0f2labm" label="Devise">
+        <inputExpression id="LiteralExpression_1l858vg" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0r2328a" label="TVA">
+        <inputExpression id="LiteralExpression_0wpd9jc" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1214s1q" label="date">
+        <inputExpression id="LiteralExpression_1ak0f0j" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1rj05j6" label="condition de paiement">
+        <inputExpression id="LiteralExpression_0is1i4e" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="validation facture" typeRef="string" />
+      <rule id="DecisionRule_1edb2ze">
+        <inputEntry id="UnaryTests_1x6l08k">
+          <text>= entité d'achat</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_054x258">
+          <text>= actif et valide</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15htrqo">
+          <text>= devise compte tiers</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r6v5or">
+          <text>= n°TVA + taux</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18km9wr">
+          <text>= mois comptable</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gms3r1">
+          <text>= conditions du compte</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1c4pdft">
+          <text>validation comptabe</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0nb4y0a">
+        <inputEntry id="UnaryTests_0jpiv6f">
+          <text>≠ entité achat</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16xib7p">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1p5yqk3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1x9n8r6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jghh02">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15wh89x">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0xoww1k">
+          <text>demande de correction facture</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0kndg8u">
+        <inputEntry id="UnaryTests_0dcm95o">
+          <text>= nom propre acheteur ou autres</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1auppwz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rsaxv2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tqqpn5">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0q8853f">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1q5xc1g">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1xgzh6e">
+          <text>demande de correction facture</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07zuo4u">
+        <inputEntry id="UnaryTests_0rcr854">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1c11c1p">
+          <text>= actif ≠ valide</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1u5k4za">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qf8z6o">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06b422q">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0b32kzq">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1airqqi">
+          <text>correction compte tiers</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1j9anuz">
+        <inputEntry id="UnaryTests_0siange">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dr3i7b">
+          <text>≠ actif</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0q19ozo">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qhwef6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uck64b">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pqlck0">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_18nner6">
+          <text>correction compte tiers</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0lnarzn">
+        <inputEntry id="UnaryTests_0zp46wl">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1eb7nix">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ij0f1x">
+          <text>≠ devise compte tiers</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0r0exx9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rui7qc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qcojtt">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zip8im">
+          <text>demande de correction facture</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1mj8t7v">
+        <inputEntry id="UnaryTests_06lrvvh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04jjjd5">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jcarrj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0c0l8hl">
+          <text>≠ n°TVA</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_035tf5o">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18dkj6z">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1u0b7s3">
+          <text>contact tiers pour vérification du n°TVA+correction facture</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1pcb7ot">
+        <inputEntry id="UnaryTests_0b0gixm">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fged91">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vwlsaa">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dv6hgf">
+          <text>≠ taux</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0swgj5l">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0r69qpb">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0kz2nu6">
+          <text>recherche compte tiers, commande et facture pour identifier erreur, demande de correction interne ou externe</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1edjmj7">
+        <inputEntry id="UnaryTests_186dq06">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1e81v2a">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rgumq9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1osxm72">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_109mm2e">
+          <text>≠ mois comptable</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16ezu47">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1o9fgjr">
+          <text>demande de correction facture</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1sgs7qs">
+        <inputEntry id="UnaryTests_1s6w3gr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17v62rl">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dbne7s">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1a8u1o5">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08ymnhp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jkt8mq">
+          <text>≠ conditions compte</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0jm41mj">
+          <text>demande de justificatif validation changement</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ahgf50">
+        <inputEntry id="UnaryTests_1yc0h3i">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0us7ssc">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07y3mo2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1x6m2sj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w99lof">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1b3xyeg">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1n1qggw">
+          <text></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1fh1d9w" name="Analyser dossier">
+    <informationRequirement id="InformationRequirement_1hvtws6">
+      <requiredDecision href="#Decision_1jui1qf" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_19crje8" hitPolicy="FIRST">
+      <input id="InputClause_1exz2d0" label="Type de documents">
+        <inputExpression id="LiteralExpression_0hpdcmg" typeRef="string" />
+      </input>
+      <input id="InputClause_0gw2ott" label="Présent" biodi:width="181">
+        <inputExpression id="LiteralExpression_0keninn" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0wwd1qb" label="Acceptable">
+        <inputExpression id="LiteralExpression_06f931r" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1b17icp" label="ACTIONS" typeRef="string" />
+      <output id="OutputClause_0zyb57e" label="BANETTE" typeRef="string" />
+      <rule id="DecisionRule_0apws4t">
+        <inputEntry id="UnaryTests_1xp5l3o">
+          <text>fiche de suivi</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fsawvo">
+          <text>OUI</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08wp52w">
+          <text>OUI</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vqqfif">
+          <text>poursuite</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1it0wn4">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1qxf3ty">
+        <inputEntry id="UnaryTests_0y58h4z">
+          <text>commande achat</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18tuobj">
+          <text>OUI</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rg60ym">
+          <text>OUI</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14xp5st">
+          <text>poursuite</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_04kw392">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_04e1bu2">
+        <inputEntry id="UnaryTests_1uwr4yo">
+          <text>commande achat</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19v39gd">
+          <text>NON</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1drijlw">
+          <text>nc</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0p5v9op">
+          <text>relance service achat</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0rc75ne">
+          <text>manque documents</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15ux7n8">
+        <description>absence validation DG</description>
+        <inputEntry id="UnaryTests_0j80p8r">
+          <text>commande achat</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1x1gwjo">
+          <text>OUI</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1734sc5">
+          <text>NON</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1v9ioz7">
+          <text>relance service achat</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1op0qa9">
+          <text>manque documents</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0aem100">
+        <inputEntry id="UnaryTests_1bzylcr">
+          <text>arc fournisseur</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_140imf5">
+          <text>OUI</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_007mnyh">
+          <text>OUI</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1clrc4p">
+          <text>poursuite</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1insf1f">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_16m2ft2">
+        <inputEntry id="UnaryTests_1w8998f">
+          <text>arc fournisseur</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w435g5">
+          <text>NON</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0as9xlq">
+          <text>nc</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04zhua7">
+          <text>relance service achat</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ujzz45">
+          <text>manque documents</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0rdo8b0">
+        <description>ARC ≠ de la commande, ARC non signé</description>
+        <inputEntry id="UnaryTests_1v25wv0">
+          <text>arc fournisseur</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1t2erw3">
+          <text>OUI</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1toh5f9">
+          <text>NON</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0w6qkfw">
+          <text>relance service achat, alerte DG</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0mt8wrj">
+          <text>manque documents</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_16jj15d">
+        <description>accompagné soit d'un BL, lettre de voiture, rapport intervention ou mot explicatif</description>
+        <inputEntry id="UnaryTests_0acsv0d">
+          <text>bon de reception</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0pjkzwo">
+          <text>OUI</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0y6bdxs">
+          <text>OUI</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1583hc5">
+          <text>poursuite</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0dfelwy">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0m59wz3">
+        <description>accompagné soit d'un BL, lettre de voiture, rapport intervention ou mot explicatif</description>
+        <inputEntry id="UnaryTests_0nm8p6o">
+          <text>bon de réception</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0tvjg49">
+          <text>NON</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1671m5a">
+          <text>nc</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0jksuma">
+          <text>relance service réception</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0uy2bmv">
+          <text>manque documents</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_02i4d7w">
+        <description>accompagné soit d'un BL, lettre de voiture, rapport intervention ou mot explicatif</description>
+        <inputEntry id="UnaryTests_0mua314">
+          <text>bon de réception</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lbf30w">
+          <text>OUI</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10cy9fz">
+          <text>NON</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_095nb84">
+          <text>relance service réception</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0p1biwu">
+          <text>manque documents</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0blwac9">
+        <inputEntry id="UnaryTests_0flxp7i">
+          <text>facture</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sez96r">
+          <text>OUI</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1t7h23k">
+          <text>OUI</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12giyse">
+          <text>poursuite</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_13femz1">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0swhl2j">
+        <inputEntry id="UnaryTests_16wj4tt">
+          <text>facture</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1io6s3o">
+          <text>OUI</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0he2fks">
+          <text>NON</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1tcd85x">
+          <text>relance service achat + fournisseur</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0cnf8l4">
+          <text>manque documents</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0p2gg6f">
+        <inputEntry id="UnaryTests_11jyngy">
+          <text>dossier outillage</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1efzbxm">
+          <text>nc</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v1zv11">
+          <text>nc</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_05859km">
+          <text>poursuite</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0egd1sy">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1mhcw0y">
+        <inputEntry id="UnaryTests_1lt57at">
+          <text>dossier outillage</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1j5l3zm">
+          <text>OUI</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yoggcz">
+          <text>OUI</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_011gthb">
+          <text>poursuite</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0n3d5wp">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0tl20fi">
+        <description>la page de garde permet de visualiser les documents attendus</description>
+        <inputEntry id="UnaryTests_1507vyt">
+          <text>dossier outillage</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1uf0bug">
+          <text>OUI</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_062azbn">
+          <text>NON</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1b10qyk">
+          <text>relance service achat et/ou qualité</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1w0cz8m">
+          <text>dossier outillage</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_12y265p">
+        <inputEntry id="UnaryTests_1cw23vj">
+          <text>contrôle qualité</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ur8oqi">
+          <text>nc</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pjlgsi">
+          <text>nc</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qunp7v">
+          <text>poursuite</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_05qjkfo">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0uwaioz">
+        <description>courrier fournisseur + résultat contrôle</description>
+        <inputEntry id="UnaryTests_10b19lw">
+          <text>contrôle qualite</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1w4f104">
+          <text>OUI</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0e98nst">
+          <text>OUI</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1b36fw0">
+          <text>poursuite</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0wkm60j">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_10wwimh">
+        <description>courrier fournisseur + résultat contrôle</description>
+        <inputEntry id="UnaryTests_1cw1eza">
+          <text>contrôle qualité</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0i3slfr">
+          <text>OUI</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xlriuu">
+          <text>NON</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_09z5mey">
+          <text>relance service qualité</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1qlo9za">
+          <text>manque documents</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00l7cit">
+        <inputEntry id="UnaryTests_0q215fu">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d9sye0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01j0imy">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_19lj0es">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0p195am">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ig9cna">
+        <inputEntry id="UnaryTests_0sa88fd">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0f27xjk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sq9qku">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1hqis6u">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1s5su76">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0c3n4oi">
+        <inputEntry id="UnaryTests_1rkdstr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0aqn749">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nzrenw">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0supixa">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1jfddm3">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1i7124c">
+        <inputEntry id="UnaryTests_1xqgw53">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0www4qb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17owywy">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1x19f02">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0wifamu">
+          <text></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_03mbzbn" name="Analyser relance">
+    <informationRequirement id="InformationRequirement_0h0akfo">
+      <requiredDecision href="#Decision_0ekt6ka" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1450w16" hitPolicy="FIRST">
+      <input id="InputClause_0cm2oh5" label="délai calculer sur date échéance +">
+        <inputExpression id="LiteralExpression_1j4e87c" typeRef="string" />
+      </input>
+      <output id="OutputClause_1mkaqym" label="comptabilité- courrier" typeRef="string" />
+      <output id="OutputClause_1mbq743" label="commerciaux" typeRef="string" />
+      <output id="OutputClause_0rydsax" label="comptabilité-blocage" typeRef="string" />
+      <output id="OutputClause_0x31c0o" label="Production" typeRef="string" />
+      <rule id="DecisionRule_0f4b9fv">
+        <description>Stop processus production, expedition, nouvelle commande</description>
+        <inputEntry id="UnaryTests_1qlnao6">
+          <text>J+ 24 heures</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_05vtfvr">
+          <text>lettre de relance niveau 1</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1pswnst">
+          <text>appel client pour rappel
+blocage des commandes en cours, nouvelle commande impossible en l'absence de règlement</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1xtya3o">
+          <text>Bascule en Proforma avant production
+Blocage commande en cours  jusqu'à règlement
+Frais 40 €
+Demande de règlement sous 8 jours</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1cjkk3t">
+          <text>Vérifier si AR en cours</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0z5gz0g">
+        <description>Inclure couts production en attente</description>
+        <inputEntry id="UnaryTests_1dzj52a">
+          <text>J+8 jours</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1py1zm0">
+          <text>lettre de relance niveau 2
+bascule en gestion avocat avec frais à la charge du client</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1tutnqz">
+          <text>relance client alerte sur procédure contentieux</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_03i54g9">
+          <text>préparation dossier litige</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0vsqlb2">
+          <text>Analyser impact sur stock/ BOM/Prévi achat</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0rmzkxx">
+        <inputEntry id="UnaryTests_0nlry4z">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_164oina">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_00dpeu1">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0l44ypk">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1c8gduw">
+          <text></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0ekt6ka" name="Analyser banque">
+    <informationRequirement id="InformationRequirement_0gpb3lu">
+      <requiredDecision href="#Decision_0sgcz9o" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0plzmn6" hitPolicy="FIRST">
+      <input id="InputClause_0mfwbr6" label="tiers ">
+        <inputExpression id="LiteralExpression_12n899w" typeRef="string" />
+      </input>
+      <input id="InputClause_1o0ihuz" label="libellé">
+        <inputExpression id="LiteralExpression_18035ne" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0m68zuw" label="devise">
+        <inputExpression id="LiteralExpression_0sd2up1" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1htztmf" label="montant">
+        <inputExpression id="LiteralExpression_1wgg3b4" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0mvbq0x">
+        <inputExpression id="LiteralExpression_085d08t" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_19tvvk6" typeRef="string" />
+      <output id="OutputClause_0296f8x" typeRef="string" />
+      <rule id="DecisionRule_0sx1408">
+        <inputEntry id="UnaryTests_02bz0lk">
+          <text>identifié</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0w93yzn">
+          <text>permet d'identifier la facture</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1iis9p2">
+          <text>identique au compte tiers</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16fxi9b">
+          <text>= facture</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gej93t">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0d09fux">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0lmlmlu">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1m1rapl">
+        <inputEntry id="UnaryTests_0mwo5dc">
+          <text>non identifié</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hhdeun">
+          <text>n/a</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06ay56m">
+          <text>n/a</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rzngwd">
+          <text>n/a</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ht97or">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1lnk7ku">
+          <text>enregistrement en compte 472</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1u82p5t">
+          <text>notification commerciaux/achats pour recherche origine</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1x2rrq3">
+        <inputEntry id="UnaryTests_1iax6p3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rrxvly">
+          <text>permet d'identifier un devis sans commande</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1fe48ej">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0y2q9kf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hl6anz">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1rl48tq">
+          <text>enregistrement en compte 472</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_03tanyz">
+          <text>notification commerciaux</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_059wve0">
+        <inputEntry id="UnaryTests_0j9gjo2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0y0u9eo">
+          <text>commande inconnue</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08fd3np">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gjm50p">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vhfogx">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0w6mhus">
+          <text>enregistrement compte 472</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0vlgwmy">
+          <text>notification commerciaux</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ees37r">
+        <inputEntry id="UnaryTests_1maehyd">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0dt5kmb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pwl4rf">
+          <text>≠ compte tiers</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1p207fp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12fdbaj">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0jzakn1">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ka8nvc">
+          <text></text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1appn5k">
+        <description>analyse des frais de change</description>
+        <inputEntry id="UnaryTests_0hlvf9a">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uaoabu">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sypjrs">
+          <text>≠ devise banque</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1n4giy9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ikgh6q">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13unrub">
+          <text>information tiers sur erreur de versement</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0n9t3f4">
+          <text>notification commerciaux</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1geo33h">
+        <inputEntry id="UnaryTests_1b068zg">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mpho4g">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0szqx8s">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16var10">
+          <text>≠ devis/facture</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_102xp0y">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01ad912">
+          <text>recherche si acompte, paiement partiel</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0kt4gbr">
+          <text>notification commerciaux</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ov65rn">
+        <inputEntry id="UnaryTests_1recsi6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0k0zc6s">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05fqrie">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03kwo30">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00ltsk2">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1220kvr">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_05wivoq">
+          <text></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_0sgcz9o" name="Analyser litige">
+    <informationRequirement id="InformationRequirement_0vh1mbm">
+      <requiredDecision href="#Decision_1fh1d9w" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_145csrc" hitPolicy="FIRST">
+      <input id="InputClause_1v69sca" label="Niveau de litige">
+        <inputExpression id="LiteralExpression_0tv97qs" typeRef="string" />
+      </input>
+      <input id="InputClause_08ohw6i" label="Type de litige">
+        <inputExpression id="LiteralExpression_07tpo9g" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1crq5w5" label="Existence tolérance">
+        <inputExpression id="LiteralExpression_04eluif" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1cpgzdt" label="Respect tolérance">
+        <inputExpression id="LiteralExpression_1xw7pkc" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1q99kg6" label="Besoin reliquat">
+        <inputExpression id="LiteralExpression_0r9k236" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0jm08n9" label="Besoin avoir">
+        <inputExpression id="LiteralExpression_1r4uqdu" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1plijed" label="Commande remplacement">
+        <inputExpression id="LiteralExpression_1hxeax1" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1pxhe79" label="information fournisseur" typeRef="string" />
+      <output id="OutputClause_0bhjxkx" label="action" typeRef="string" />
+      <rule id="DecisionRule_1e7o1jd">
+        <inputEntry id="UnaryTests_0e1z51d">
+          <text>documentaire</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1382ruk">
+          <text>non conforme</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kct1e5">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19rzut3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_044w3k3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04in8aq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12bxr7l">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0lxw69l">
+          <text>en attente nouveau document</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_16233rp">
+          <text>relance service achat</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03l279v">
+        <inputEntry id="UnaryTests_10jcd8x">
+          <text>documentaire</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xdit0w">
+          <text>manquant</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10waghw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09tlbcm">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14e3hm0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0j6kauh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0htdlu6">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_182savw">
+          <text>en attente réception document</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1diwmxy">
+          <text>relance service achat</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ujg7jc">
+        <inputEntry id="UnaryTests_0zdhx8f">
+          <text>produits</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1q71489">
+          <text>quantité</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xcrehl">
+          <text>non</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0salrue">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0atl59i">
+          <text>oui</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rpgld8">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gdpxaq">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fd4pw8">
+          <text>en attente réception reliquat</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1vasgfk">
+          <text>relance service achat</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1mn5b8o">
+        <inputEntry id="UnaryTests_0tihyvc">
+          <text>produits</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0y2z1nv">
+          <text>quantité</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ttqo40">
+          <text>non</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_063rx7q">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1qx0sda">
+          <text>non</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_101snq9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03vf1hh">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1br9ncu">
+          <text>mise en paiement</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1hi08xc">
+          <text>abandon reliquat</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_034oxnb">
+        <inputEntry id="UnaryTests_1b7i8ip">
+          <text>produits</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11bkh65">
+          <text>quantité</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qc4ipf">
+          <text>non</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yjwl0y">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_114tgpj">
+          <text>en attente de décision</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05hjccb">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0x136p4">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_18sk6qn">
+          <text>réception non conforme</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0pm87fq">
+          <text>relance service achat</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_11gfcwu">
+        <inputEntry id="UnaryTests_1fsp5v2">
+          <text>produits</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18fj5c1">
+          <text>quantité</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pbc4kf">
+          <text>oui</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sdqfhx">
+          <text>non</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wvlgs3">
+          <text>non</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_173ps0b">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xx3gaa">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ow3c0m">
+          <text>mise en paiement</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_15ixdng">
+          <text>abandon reliquat</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_19osmq0">
+        <inputEntry id="UnaryTests_0q7utgd">
+          <text>produits</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vxdz48">
+          <text>quantité</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0jgooyl">
+          <text>oui</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1oryyiz">
+          <text>oui</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1v2s8ib">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cay4um">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08pqoin">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zl8tp7">
+          <text>mise en paiement</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_09i6eqi">
+          <text>abandon reliquat</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0k7hkgy">
+        <inputEntry id="UnaryTests_0mu3e2v">
+          <text>produits</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1622hau">
+          <text>quantité</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_071o5zs">
+          <text>oui</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0g7ykte">
+          <text>non</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13yslm5">
+          <text>oui</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zhjewu">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rycskv">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02cnl8q">
+          <text>en attente réception reliquat</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0nnr2r0">
+          <text>relance service achat</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0dried1">
+        <inputEntry id="UnaryTests_1vk7l1e">
+          <text>produits</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0iwqzl2">
+          <text>qualité</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1d10ohm">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06yglyd">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0h19p2x">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05xmjxa">
+          <text>oui</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sje2je">
+          <text>oui</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0z79prv">
+          <text>attente réception nouvelle commande</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1idluns">
+          <text>relance service qualité+achat</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1i8y8vo">
+        <inputEntry id="UnaryTests_088awru">
+          <text>produits</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1j63qx2">
+          <text>qualité</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ghjpcr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xcjeaq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hqfzov">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xtzg71">
+          <text>oui</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08vin5k">
+          <text>non</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0adhpol">
+          <text>en attente réception avoir</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1tj0pb3">
+          <text>relance service qualité</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ene30a">
+        <inputEntry id="UnaryTests_1mhyrxp">
+          <text>produits</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1et93ae">
+          <text>qualité</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ngb8q6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1stv6l0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0frl8cz">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hn0ayp">
+          <text>non</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06zbs8r">
+          <text>oui</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1g97lko">
+          <text>en attente réception nouvelle commande</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ij5sgr">
+          <text>relance service achat</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ba86v4">
+        <inputEntry id="UnaryTests_0kpo9v1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qcdtg2">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gw03vs">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0izo7vj">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0exftel">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wljfwa">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uqhzto">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10qq4q9">
+          <text></text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_19v04es">
+          <text></text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_11jmsfj" name="lettrage">
+    <informationRequirement id="InformationRequirement_1j1o14d">
+      <requiredDecision href="#Decision_03mbzbn" />
+    </informationRequirement>
+  </decision>
+  <decision id="Decision_09n54rn" name="Analyser paramétrage de compte comptable">
+    <informationRequirement id="InformationRequirement_0ywnv9t">
+      <requiredDecision href="#Decision_1fh1d9w" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1sgcrt4" hitPolicy="FIRST">
+      <input id="InputClause_1pv8jwd">
+        <inputExpression id="LiteralExpression_0zpctrg" typeRef="string" />
+      </input>
+      <output id="OutputClause_00xpcgy" typeRef="string" />
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="DMNDiagram_1l6d23x">
+      <dmndi:DMNShape id="DMNShape_1wyelmc" dmnElementRef="Decision_1jui1qf">
+        <dc:Bounds height="80" width="180" x="157" y="81" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_11ynt4c" dmnElementRef="InformationRequirement_1hvtws6">
+        <di:waypoint x="247" y="161" />
+        <di:waypoint x="247" y="180" />
+        <di:waypoint x="247" y="200" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0hev99p" dmnElementRef="InformationRequirement_0h0akfo">
+        <di:waypoint x="247" y="520" />
+        <di:waypoint x="247" y="540" />
+        <di:waypoint x="247" y="560" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1c5y1k0" dmnElementRef="Decision_1fh1d9w">
+        <dc:Bounds height="80" width="180" x="157" y="200" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1anw8l0" dmnElementRef="Decision_03mbzbn">
+        <dc:Bounds height="80" width="180" x="157" y="560" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1bs69ya" dmnElementRef="Decision_0ekt6ka">
+        <dc:Bounds height="80" width="180" x="157" y="440" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0jo6rh8" dmnElementRef="InformationRequirement_0vh1mbm">
+        <di:waypoint x="247" y="280" />
+        <di:waypoint x="247" y="300" />
+        <di:waypoint x="247" y="320" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0fujpmi" dmnElementRef="Decision_0sgcz9o">
+        <dc:Bounds height="80" width="180" x="157" y="320" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_14stcrl" dmnElementRef="InformationRequirement_0gpb3lu">
+        <di:waypoint x="247" y="400" />
+        <di:waypoint x="247" y="420" />
+        <di:waypoint x="247" y="440" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0m35prb" dmnElementRef="InformationRequirement_0ywnv9t">
+        <di:waypoint x="247" y="280" />
+        <di:waypoint x="480" y="300" />
+        <di:waypoint x="480" y="320" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_07zjq3f" dmnElementRef="Decision_11jmsfj">
+        <dc:Bounds height="80" width="180" x="157" y="670" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1qgh5go" dmnElementRef="InformationRequirement_1j1o14d">
+        <di:waypoint x="247" y="640" />
+        <di:waypoint x="247" y="650" />
+        <di:waypoint x="247" y="670" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0jrierh" dmnElementRef="Decision_09n54rn">
+        <dc:Bounds height="80" width="180" x="390" y="320" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
